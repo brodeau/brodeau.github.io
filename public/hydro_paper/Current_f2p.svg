@@ -1734,7 +1734,7 @@
          style="stroke-linecap:butt;stroke-linejoin:round">
         <path
            id="path7093"
-           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:butt;stroke-linejoin:miter"
+           style="fill:none;stroke:#000000;stroke-width:3.21492815;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
            d="m 639.36,88.8 7.13571,0 1819.60719,0 91.3371,-35.52 0,0 -91.3371,-35.52 -1819.60719,0 -7.13571,0 z" />
       </g>
     </g>
