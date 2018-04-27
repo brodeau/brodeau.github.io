@@ -34,7 +34,7 @@ extra oasis-related flag in our particular case:
 
 #### 1.3 NEMO opa.exe and sas.exe
 
-No it's getting trickier since we won't compile a single "nemo.exe" out of NEMO
+Now, it's getting trickier since we won't compile a single "nemo.exe" out of NEMO
 but one "nemo.exe" that we shall rename "opa.exe" and another "nemo.exe" that
 we shall rename "sas.exe".
 
