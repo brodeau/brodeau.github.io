@@ -52,9 +52,9 @@ executables to compile into file "cfg.txt":
     NANUK1_OPA OPA_SRC
     NANUK1_SAS_LIM3 OPA_SRC SAS_SRC LIM_SRC_3
     
-You start to get it there is this "NANUK1_OPA" config in which we will compile
-what will eventually become "opa.exe" and this "NANUK1_SAS_LIM3" config in which we will compile
-what will become "sas.exe". So:
+I guess, you start to get it there, it is in the "NANUK1_OPA" config that we
+will compile what will eventually become "opa.exe" and in the "NANUK1_SAS_LIM3"
+that we will compile what will become "sas.exe". So:
 
     cd ./CONFIG/
     mkdir NANUK1_OPA NANUK1_SAS_LIM3
