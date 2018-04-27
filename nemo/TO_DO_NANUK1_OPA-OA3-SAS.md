@@ -90,9 +90,7 @@ We're done with compiling stuffs!
 
 In your run directory, before launching the monster you need to have:
 
-* The 3 executables (see 1):
-
-    opa.exe sas.exe xios_server.exe
+* The 3 executables (see 1): opa.exe, sas.exe, xios_server.exe
 
 * All appropriate NetCDF files (see 2.1)
 
@@ -101,14 +99,14 @@ In your run directory, before launching the monster you need to have:
 
 #### 2.1 Setup and forcing NetCDF files
 
-All the netcdf files needed are the in tarball"NANUK1_DATA_RUNDIR.tar.gz" in
+All the netcdf files needed are the in tarball "NANUK1_DATA_RUNDIR.tar.gz" in
 this directory on the drive (should replace all previous version):
 
     NEMO_stuff/NEMO_CONFIG_DATA/NANUK1/
 
 Link: https://drive.google.com/open?id=1rC8UUsIAQ4YTKAmHp4ZXqo-3qBU8OF4h
 
-NOTE:The files for the DFS5 atmospheric forcing, year 2010 are not included, I assume you
+NOTE: The files for the DFS5 atmospheric forcing, year 2010 are not included, I assume you
 have them already.
 
 
@@ -116,10 +114,13 @@ have them already.
 
 The appropriate namelists for opa.exe, sas.exe and OASIS, respectively:
 
+    namelist_cfg & namelist_ref, namelist_sas_cfg & namelist_sas_ref & namelist_ice_cfg & namelist_ice_ref, namcouple
+
+Are to be found in the google drive directory "NANUK1_OPA_OA3_SASLIM3_CTRL_nemo_3.6" in :
 
     NEMO_stuff/NEMO_CONFIG_CTRL/NANUK1/
 
-They are in this archive:
+Link: https://drive.google.com/open?id=1CfT0F-_9CZpA0MAApGw33bEhAXfATvy8
 
+All XML files for XIOS are in the same directory...
 
-and xml files for XIOS
