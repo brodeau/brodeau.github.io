@@ -57,10 +57,17 @@ will compile what will eventually become "opa.exe" and in the "NANUK1_SAS_LIM3"
 that we will compile what will become "sas.exe". So:
 
     cd ./CONFIG/
-    mkdir NANUK1_OPA NANUK1_SAS_LIM3
 
-Fill these two directories with what you find in the following google drive directory into:
-https://drive.google.com/open?id=1zxrsqfva5L7vAHCr1LzkU_zT2UmNbG2B
+In "CONFIG" add eveything you find in the following google drive directory:
+
+    NEMO_stuff/NEMO_CONFIG/NANUK1/NANUK1_OPA_OA3_SASLIM3_nemo_3.6/CONFIG
+
+Link: https://drive.google.com/open?id=1zxrsqfva5L7vAHCr1LzkU_zT2UmNbG2B
+
+Namely: 
+
+    cfg.txt NANUK1_OPA NANUK1_SAS_LIM3
+
 
 Have a look at the "CPP" file in each directory, it might give you a hint on what we really
 do... Like for instance, "key_lim3" is obviously only used for the "NANUK1_SAS_LIM3" config.
@@ -78,3 +85,36 @@ We're done with compiling stuffs!
 
 
 
+
+
+
+In your run directory, before launching the monster you need to have:
+
+* The 3 executables:
+
+    opa.exe sas.exe xios_server.exe
+
+#### Setup and forcing NetCDF files
+
+All the netcdf files needed are the in tarball"NANUK1_DATA_RUNDIR.tar.gz" in
+this directory on the drive (should replace all previous version):
+
+    NEMO_stuff/NEMO_CONFIG_DATA/NANUK1/
+
+Link: https://drive.google.com/open?id=1rC8UUsIAQ4YTKAmHp4ZXqo-3qBU8OF4h
+
+NOTE:The files for the DFS5 atmospheric forcing, year 2010 are not included, I assume you
+have them already.
+
+
+#### Namelists and XIOS xml files
+
+The appropriate namelists for opa.exe, sas.exe and OASIS, respectively:
+
+
+    NEMO_stuff/NEMO_CONFIG_CTRL/NANUK1/
+
+They are in this archive:
+
+
+and xml files for XIOS
