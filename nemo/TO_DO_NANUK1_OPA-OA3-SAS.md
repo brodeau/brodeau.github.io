@@ -85,16 +85,21 @@ We're done with compiling stuffs!
 
 
 
-### 1/ Preparing and launching a simulation
+### 2/ Preparing and launching a simulation
 
 
 In your run directory, before launching the monster you need to have:
 
-* The 3 executables:
+* The 3 executables (see 1):
 
     opa.exe sas.exe xios_server.exe
 
-#### Setup and forcing NetCDF files
+* All appropriate NetCDF files (see 2.1)
+
+* The control ASCII files (see 2.2)
+
+
+#### 2.1 Setup and forcing NetCDF files
 
 All the netcdf files needed are the in tarball"NANUK1_DATA_RUNDIR.tar.gz" in
 this directory on the drive (should replace all previous version):
@@ -107,7 +112,7 @@ NOTE:The files for the DFS5 atmospheric forcing, year 2010 are not included, I a
 have them already.
 
 
-#### Namelists and XIOS xml files
+#### 2.2 Namelists and XIOS xml files
 
 The appropriate namelists for opa.exe, sas.exe and OASIS, respectively:
 
