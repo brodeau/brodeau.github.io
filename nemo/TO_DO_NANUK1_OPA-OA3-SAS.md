@@ -133,3 +133,25 @@ An example (I have no idea if it is the right ratio of processes for OPA/SAS) :
 
 (we have nodes with 48 cores on Marenostrum, that's why. Otherwize I would tend
 to use less of course...
+
+Of course mind the cpu decomposition according to the number of cores you use
+for each component.
+
+In this particular case, for "opa.exe", in namelist_cfg, I have:
+
+    &nammpp
+    jpni=5
+    jpnj=5
+    jpnij=25
+    /
+
+for "sas.exe", in namelist_sas_cfg, I have:
+
+    &nammpp
+    jpni=4
+    jpnj=4
+    jpnij=16
+    /
+
+
+/laurent
