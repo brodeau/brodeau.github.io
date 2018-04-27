@@ -116,7 +116,7 @@ The appropriate namelists for opa.exe, sas.exe and OASIS, respectively:
 
     namelist_cfg & namelist_ref, namelist_sas_cfg & namelist_sas_ref & namelist_ice_cfg & namelist_ice_ref, namcouple
 
-Are to be found in the google drive directory "NANUK1_OPA_OA3_SASLIM3_CTRL_nemo_3.6" in :
+are to be found in the google drive directory "NANUK1_OPA_OA3_SASLIM3_CTRL_nemo_3.6" in :
 
     NEMO_stuff/NEMO_CONFIG_CTRL/NANUK1/
 
@@ -124,3 +124,12 @@ Link: https://drive.google.com/open?id=1CfT0F-_9CZpA0MAApGw33bEhAXfATvy8
 
 All XML files for XIOS are in the same directory...
 
+
+#### 2.3 Launching the beast
+
+An example (I have no idea if it is the right ratio of processes for OPA/SAS) :
+
+    mpirun -np 25 ./opa.exe : -np 16 ./sas.exe : -np 1 ./xios_server.exe
+
+(we have nodes with 48 cores on Marenostrum, that's why. Otherwize I would tend
+to use less of course...
