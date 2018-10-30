@@ -202,7 +202,11 @@ for "sas.exe", in namelist_sas_cfg, I have:
 
 There are 16 cores per node, and apparently "aprun" which replace "mpirun" on Cray machines doesn't like to mix different executables on the same node. So I use 1 node for opa.exe, 1 for sas.exe and a third one for xios_server.exe (only using 4 cores on this 3rd node though). The launch command looks like this:
 
+NANUK1:
+
     aprun -n 16 ./opa.exe : -n 16 ./sas.exe : -n 4 ./xios_server.exe
+
+
 
 In terms of namelist that just means that for both OPA and SAS we have:
 
@@ -211,6 +215,22 @@ In terms of namelist that just means that for both OPA and SAS we have:
     jpnj=4
     jpnij=16
     /
+
+
+NANUK025:
+
+    aprun -n 96 ./opa.exe : -n 96 ./sas.exe : -n 8 ./xios_server.exe
+
+    &nammpp
+    jpni=11
+    jpnj=11
+    jpnij=96
+    /
+
+(for NANUK025, we use land-processor-domain removal, that's why 96 is way smaller than 11 x 11 !!!)
+
+
+
 
 The SLURM script batch script "run_NANUK1_SASOA3-SOAN100HX.sub" I use to launch the run looks like this:
 
