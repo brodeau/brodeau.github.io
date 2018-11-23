@@ -1052,10 +1052,10 @@ CONTAINS
       !                                                      ! ================== !
       IF( srcv(jpr_ocx1)%laction ) THEN                      ! received by sas in case of opa <-> sas coupling
          !LB:
-         IF(lwp) WRITE(numout,*) 'LOLO (SAS) sbccpl: we received SSU! (frcv(jpr_ocx1)%z3(:,:,1))'
+         IF(lwp) WRITE(numout,*) 'LB:(SAS)sbccpl: we received SSU! (frcv(jpr_ocx1)%z3(:,:,1))'
          IF ( l_vect_exchg_T ) THEN
-            IF(lwp) WRITE(numout,*) 'LOLO (SAS) sbccpl: SSU is given on T-points because OPA sent it on T-points (l_vect_exchg_T==True)!'
-            IF(lwp) WRITE(numout,*) 'LOLO (SAS) sbccpl:   => will interpolate SSU on U points!'
+            IF(lwp) WRITE(numout,*) 'LB:(SAS)sbccpl: SSU is given on T-points because OPA sent it on T-points (l_vect_exchg_T==True)!'
+            IF(lwp) WRITE(numout,*) 'LB:(SAS)sbccpl:   => will interpolate SSU on U points!'
             DO jj = 2, jpjm1                                          ! T ==> (U)
                DO ji = fs_2, fs_jpim1   ! vector opt.
                   ssu_m(ji,jj) = 0.5 * ( frcv(jpr_ocx1)%z3(ji+1,jj  ,1) + frcv(jpr_ocx1)%z3(ji,jj,1) )
@@ -1063,7 +1063,7 @@ CONTAINS
             END DO
             CALL lbc_lnk( ssu_m(:,:), 'U',  -1. )
          ELSE
-            IF(lwp) WRITE(numout,*) 'LOLO (SAS) sbccpl:   => default case SSU is already on U points!'
+            IF(lwp) WRITE(numout,*) 'LB:(SAS)sbccpl:   => default case SSU is already on U points!'
             !LB.
          ssu_m(:,:) = frcv(jpr_ocx1)%z3(:,:,1)
          END IF
@@ -1073,10 +1073,10 @@ CONTAINS
       ENDIF
       IF( srcv(jpr_ocy1)%laction ) THEN
          !LB:
-         IF(lwp) WRITE(numout,*) 'LOLO (SAS) sbccpl: we received SSV! (frcv(jpr_ocy1)%z3(:,:,1))'
+         IF(lwp) WRITE(numout,*) 'LB:(SAS)sbccpl: we received SSV! (frcv(jpr_ocy1)%z3(:,:,1))'
          IF ( l_vect_exchg_T ) THEN
-            IF(lwp) WRITE(numout,*) 'LOLO (SAS) sbccpl: SSV is given on T-points because OPA sent it on T-points (l_vect_exchg_T==True)!'
-            IF(lwp) WRITE(numout,*) 'LOLO (SAS) sbccpl:   => will interpolate SSV on V points!'
+            IF(lwp) WRITE(numout,*) 'LB:(SAS)sbccpl: SSV is given on T-points because OPA sent it on T-points (l_vect_exchg_T==True)!'
+            IF(lwp) WRITE(numout,*) 'LB:(SAS)sbccpl:   => will interpolate SSV on V points!'
             DO jj = 2, jpjm1                                          ! T ==> (V)
                DO ji = fs_2, fs_jpim1   ! vector opt.
                   ssv_m(ji,jj) = 0.5 * ( frcv(jpr_ocy1)%z3(ji  ,jj+1,1) + frcv(jpr_ocy1)%z3(ji,jj,1) )
@@ -1084,7 +1084,7 @@ CONTAINS
             END DO
             CALL lbc_lnk( ssv_m(:,:), 'V',  -1. )
          ELSE
-            IF(lwp) WRITE(numout,*) 'LOLO (SAS) sbccpl:   => default case SSV is already on V points!'
+            IF(lwp) WRITE(numout,*) 'LB:(SAS)sbccpl:   => default case SSV is already on V points!'
             !LB.
          ssv_m(:,:) = frcv(jpr_ocy1)%z3(:,:,1)
          END IF
@@ -2191,12 +2191,12 @@ CONTAINS
       IF( ssnd(jps_oemp  )%laction )  CALL cpl_snd( jps_oemp  , isec, RESHAPE ( emp , (/jpi,jpj,1/) ), info )
       IF( ssnd(jps_sflx  )%laction )  CALL cpl_snd( jps_sflx  , isec, RESHAPE ( sfx , (/jpi,jpj,1/) ), info )
       !LB:
-      IF(lwp.AND.ssnd(jps_otx1)%laction) WRITE(numout,*) 'LOLO (SAS) sbccpl: will send Tau_x ("utau" | jps_otx1)!'
-      IF(lwp.AND.ssnd(jps_oty1)%laction) WRITE(numout,*) 'LOLO (SAS) sbccpl: will send Tau_y ("vtau" | jps_oty1)!'
+      IF(lwp.AND.ssnd(jps_otx1)%laction) WRITE(numout,*) 'LB:(SAS)sbccpl: will send Tau_x ("utau" | jps_otx1)!'
+      IF(lwp.AND.ssnd(jps_oty1)%laction) WRITE(numout,*) 'LB:(SAS)sbccpl: will send Tau_y ("vtau" | jps_oty1)!'
       IF(lwp.AND.ssnd(jps_oty1)%laction) WRITE(numout,*) ''
       !! We send stress components interpolated on T grid points! (neXtSIM)
       IF( l_vect_exchg_T ) THEN
-         IF(lwp) WRITE(numout,*) 'LOLO (SAS) sbccpl: "utau","vtau" interpolated on T-points before send to OPA!'
+         IF(lwp) WRITE(numout,*) 'LB:(SAS)sbccpl: "utau","vtau" interpolated on T-points before send to OPA!'
          DO jj = 2, jpjm1
             DO ji = fs_2, fs_jpim1   ! vector opt.
                ztmp1(ji,jj) = 0.5 * ( utau(ji,jj) + utau(ji-1,jj  ) )
@@ -2208,7 +2208,7 @@ CONTAINS
          IF( ssnd(jps_oty1  )%laction )  CALL cpl_snd( jps_oty1  , isec, RESHAPE ( ztmp2, (/jpi,jpj,1/) ), info )
          !LB.
       ELSE
-         IF(lwp) WRITE(numout,*) 'LOLO (SAS) sbccpl: default, "utau","vtau" are sent to OPA on U,V!'
+         IF(lwp) WRITE(numout,*) 'LB:(SAS)sbccpl: default, "utau","vtau" are sent to OPA on U,V!'
       IF( ssnd(jps_otx1  )%laction )  CALL cpl_snd( jps_otx1  , isec, RESHAPE ( utau, (/jpi,jpj,1/) ), info )
       IF( ssnd(jps_oty1  )%laction )  CALL cpl_snd( jps_oty1  , isec, RESHAPE ( vtau, (/jpi,jpj,1/) ), info )
       END IF
